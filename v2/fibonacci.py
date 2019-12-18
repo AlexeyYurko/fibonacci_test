@@ -3,7 +3,7 @@ Pseudo-OOP procedure version of calculating the n-th term of the Fibonacci serie
 Why pseudo? Because in this case it's seems little over.
 Where is no DRY, most functions/methods are same as in the fibonacci_procedure.py
 """
-from fibonacci_helpers import DataValidator, FibonacciSolver
+from v2.fibonacci_helpers import DataValidator, FibonacciSolver
 
 
 def main():
