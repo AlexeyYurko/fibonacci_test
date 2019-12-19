@@ -54,7 +54,7 @@ def simple(number):
     fibonacci_previous = fibonacci_current = 1
     for _ in range(2, number):
         fibonacci_previous, fibonacci_current = fibonacci_current, fibonacci_current + \
-                                                fibonacci_previous
+            fibonacci_previous
     return fibonacci_current
 
 
@@ -100,7 +100,7 @@ def fibonacci_gen(number):
     for _ in range(number):
         yield fibonacci_current
         fibonacci_current, fibonacci_previous = fibonacci_previous, \
-                                                fibonacci_current + fibonacci_previous
+            fibonacci_current + fibonacci_previous
 
 
 def is_fibonacci(number):
@@ -127,13 +127,13 @@ def position(value):
     return -1
 
 
-def next_seq(n, fibonacci_previous, fibonacci_current):
+def next_seq(steps, fibonacci_previous, fibonacci_current):
     """
     Find next n numbers in fibonacci sequence. Simular to fib3.
     """
-    for _ in range(n):
+    for _ in range(steps):
         fibonacci_previous, fibonacci_current = fibonacci_current, fibonacci_current + \
-                                                fibonacci_previous
+            fibonacci_previous
     return fibonacci_current
 
 
@@ -154,18 +154,21 @@ def main():
     # a2 = 573147844013817084101
     # n = 10
     while True:
-        a1 = a2 = n = 1
+        previous = current = steps = 1
         try:
-            a1, a2, n = map(int, input('[to quit - press Ctrl-C] Enter space separated a1 a2 n: ')
-                            .split())
+            previous, current, steps = map(int,
+                                           input("""[to quit - press Ctrl-C]
+                                                 Enter space separated a1 a2 n: """)
+                                           .split())
         except ValueError:
             print('Enter values in numeric format')
 
-        if is_fibonacci(a1) and is_fibonacci(a2):
-            if position(a1) + 1 == position(a2):
-                print(next_seq(n, a1, a2))
+        if is_fibonacci(previous) and is_fibonacci(current):
+            if position(previous) + 1 == position(current):
+                print(next_seq(steps, previous, current))
             else:
-                print("That's correct Fibonacci's numbers, but they not in a correct sequence")
+                print(
+                    "That's correct Fibonacci's numbers, but they not in a correct sequence")
         else:
             print('Something goes wrong. Enter correct Fibonacci numbers')
 
