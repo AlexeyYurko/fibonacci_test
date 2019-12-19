@@ -42,11 +42,11 @@ class DataValidator:
             exit()
 
     def is_data_correct(self):
-        return self.is_fibonacci(self.a1) and self.is_fibonacci(self.a2) and self.is_right_sequence() and self.n > 0
+        return is_fibonacci(self.a1) and is_fibonacci(self.a2) and self.is_right_sequence() and self.n > 0
 
     def is_right_sequence(self):
-        return self.position(self.a1) + 1 == self.position(self.a2)
+        return position(self.a1) + 1 == position(self.a2)
 
     @property
     def values(self):
-        return self.n, self.a2, self.a1
+        return self.n, self.a1, self.a2

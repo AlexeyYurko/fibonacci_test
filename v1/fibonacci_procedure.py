@@ -1,5 +1,6 @@
 """
-Procedure version of calculating the n-th term of the Fibonacci series.
+Version1
+Calculating the n-th term of the Fibonacci series.
 With eight variants of calculating the series itself (yes, you can painlessly remove seven of them).
 """
 
@@ -153,13 +154,18 @@ def main():
     # a2 = 573147844013817084101
     # n = 10
     while True:
-        a1, a2, n = map(int, input('[to quit - press Ctrl-C] Enter space separated a1 a2 n: ')
-                        .split())
+        a1 = a2 = n = 1
+        try:
+            a1, a2, n = map(int, input('[to quit - press Ctrl-C] Enter space separated a1 a2 n: ')
+                            .split())
+        except ValueError:
+            print('Enter values in numeric format')
+
         if is_fibonacci(a1) and is_fibonacci(a2):
             if position(a1) + 1 == position(a2):
                 print(next_seq(n, a1, a2))
             else:
-                print("That's correct Fibonacci's numbers, but they not in a sequence")
+                print("That's correct Fibonacci's numbers, but they not in a correct sequence")
         else:
             print('Something goes wrong. Enter correct Fibonacci numbers')
 

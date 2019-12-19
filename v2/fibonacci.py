@@ -1,9 +1,11 @@
 """
-Pseudo-OOP procedure version of calculating the n-th term of the Fibonacci series.
+Version2
+Pseudo-OOP version of calculating the n-th term of the Fibonacci series.
 Why pseudo? Because in this case it's seems little over.
 Where is no DRY, most functions/methods are same as in the fibonacci_procedure.py
 """
-from v2.fibonacci_helpers import DataValidator, FibonacciSolver
+
+from fibonacci_helpers import DataValidator, next_seq
 
 
 def main():
@@ -21,12 +23,11 @@ def main():
     # a2 = 573147844013817084101
     # n = 10
 
-    fb = FibonacciSolver()
     while True:
         line = input('[to quit - press Ctrl-C] Enter space separated a1 a2 n: ')
         validate = DataValidator(line)
         if validate.is_data_correct():
-            solver = fb.next_seq(*validate.values)
+            solver = next_seq(*validate.values)
             print(solver)
 
 
